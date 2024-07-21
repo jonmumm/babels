@@ -191,13 +191,11 @@ export const generateScenario = async (
   `;
 
   try {
-    console.log("prompt");
     const { object } = await generateObject({
       model: openai("gpt-4-turbo"),
       schema: GenerateScenarioOutputSchema,
       prompt: prompt,
     });
-    console.log({ object });
 
     options?.onFinish?.(object);
   } catch (error) {
